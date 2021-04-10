@@ -9,4 +9,9 @@ io.on('connection', socket => {
   socket.on('kirim-pesan', message => {
     socket.broadcast.emit('isi-pesan', { message: message, name: users[socket.id] })
   })
+  
+  socket.on('disconnect', () => {
+    socket.broadcast.emit('user-keluar', users[socket.id])
+    delete users[socket.id]
+  })
 })
