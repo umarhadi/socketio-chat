@@ -1,4 +1,4 @@
-const socket = io('ws://localhost:3000')
+const socket = io('http://localhost:3000')
 const kontainerPesan = document.getElementById('kontainer-pesan')
 const formPesan = document.getElementById('kontainer-kirim')
 const inputPesan = document.getElementById('input-pesan')
