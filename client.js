@@ -3,8 +3,8 @@ const messageContainer = document.getElementById('kontainer-pesan')
 const messageForm = document.getElementById('kontainer-kirim')
 const messageInput = document.getElementById('input-pesan')
 
-const name = prompt('What is your name?')
-appendMessage('Kamu bergabung')
+const name = prompt('Siapa nama Anda?')
+appendMessage('Anda telah bergabung')
 socket.emit('user-baru', name)
 
 socket.on('isi-pesan', data => {
@@ -22,7 +22,7 @@ socket.on('user-keluar', name => {
 messageForm.addEventListener('submit', e => {
   e.preventDefault()
   const message = messageInput.value
-  appendMessage(`You: ${message}`)
+  appendMessage(`Anda: ${message}`)
   socket.emit('kirim-isi-pesan', message)
   messageInput.value = ''
 })
