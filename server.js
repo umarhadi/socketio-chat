@@ -6,4 +6,7 @@ io.on('connection', socket => {
     users[socket.id] = name
     socket.broadcast.emit('user-gabung', name)
   })
+  socket.on('kirim-pesan', message => {
+    socket.broadcast.emit('isi-pesan', { message: message, name: users[socket.id] })
+  })
 })
