@@ -1,6 +1,7 @@
 const io = require('socket.io')(3000)
 
 const users = {}
+// register user yang baru masuk ke server dan melakukan join
 io.on('connection', socket => {
   socket.on('user-baru', name => {
     users[socket.id] = name
